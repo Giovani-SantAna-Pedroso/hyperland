@@ -57,6 +57,10 @@ fi
 
 # Seleciona configuração e saída de áudio
 case "$1" in
+  mirror)
+    SOURCE="$BASE_DIR/hyprland_mirror.conf"
+    AUDIO_TARGET="$HDMI_SINK"
+    ;;
   4k)
     SOURCE="$BASE_DIR/hyprland_4k.conf"
     AUDIO_TARGET="$HDMI_SINK"
