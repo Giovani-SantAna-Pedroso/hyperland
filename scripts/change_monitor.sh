@@ -2,7 +2,8 @@
 # ──────────────────────────────────────────────
 # Script para alternar entre configurações do Hyprland
 # e ajustar a saída de áudio automaticamente
-# Uso: ./set_hyprland_mode.sh [4k|ultra|gaming|help]
+#
+# Uso: ./set_hyprland_mode.sh [4k|ultra|gaming|remote|help]
 # ──────────────────────────────────────────────
 
 BASE_DIR="$(dirname "$(realpath "$0")")/.."
@@ -19,12 +20,13 @@ HDMI_SINK="alsa_output.pci-0000_03_00.1.hdmi-stereo"
 HEADPHONES_SINK="alsa_output.pci-0000_03_00.6.analog-stereo"
 
 show_help() {
-  echo -e "${YELLOW}Uso:${RESET} $0 {4k|ultra|gaming|help}"
+  echo -e "${YELLOW}Uso:${RESET} $0 {4k|ultra|gaming|remote|help}"
   echo
   echo "Alterna o arquivo hyprland.conf e muda a saída de áudio:"
-  echo "  4k       → usa hyprland_4k.conf + saída HDMI"
-  echo "  ultra    → usa hyprland_ultra.conf + saída Headphones"
-  echo "  gaming   → usa hyprland_ultra_gaming.conf + saída Headphones"
+  echo "  4k       → hyprland_4k.conf + saída HDMI"
+  echo "  ultra    → hyprland_ultra.conf + saída Headphones"
+  echo "  gaming   → hyprland_ultra_gaming.conf + saída Headphones"
+  echo "  remote   → hyprland_remote.conf (Alt como mod) + Headphones"
   echo "  help     → mostra esta ajuda"
   echo
 }
@@ -71,6 +73,10 @@ case "$1" in
     ;;
   gaming)
     SOURCE="$BASE_DIR/hyprland_ultra_gaming.conf"
+    AUDIO_TARGET="$HEADPHONES_SINK"
+    ;;
+  remote)
+    SOURCE="$BASE_DIR/hyprland_remote.conf"
     AUDIO_TARGET="$HEADPHONES_SINK"
     ;;
   help|-h|--help)

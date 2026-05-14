@@ -1,0 +1,10 @@
+hl.config({
+	decorations({
+		rounding = 10,
+		blur({
+			enabled = true,
+			size = 3,
+			passes = 1,
+		}),
+	}),
+})
