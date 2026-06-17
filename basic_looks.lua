@@ -14,11 +14,14 @@ hl.config({
 		resize_on_border = false,
 
 		-- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
-		allow_tearing = false,
+		allow_tearing = true,
 
 		layout = "dwindle",
 	},
 
+	dwindle = {
+		preserve_split = true,
+	},
 	decoration = {
 		rounding = 4,
 		rounding_power = 2,

@@ -1,5 +1,5 @@
 hl.on("hyprland.start", function()
-	hl.exec_cmd("waybar")
+	hl.exec_cmd("ags run")
 	hl.exec_cmd("firefox")
 	hl.exec_cmd("wpaperd")
 	hl.exec_cmd("lxqt-policykit-agent")
