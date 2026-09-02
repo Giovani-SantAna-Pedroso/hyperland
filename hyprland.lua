@@ -1,4 +1,5 @@
 require("monitors")
+require("hybrenate")
 require("autostart")
 require("input")
 require("basic_looks")
