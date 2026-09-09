@@ -24,8 +24,6 @@ hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }))
 
 hl.bind(mainMod .. "+ F", hl.dsp.window.fullscreen())
 
-hl.bind(" + Print", hl.dsp.exec_cmd("wl-copy < $(grimshot --notify save area ~/Pictures/Screenshots/$(date +%s ).png)"))
-
 -- Move focus to a workspace or send a program to a
 --
 for i = 1, 10 do
@@ -43,6 +41,4 @@ hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 require("keybinds.media")
--- bind = $mainMod , F5, exec, otd loadsettings ~/.config/OpenTabletDriver/Presets/note_primarny_monitor_hypr.json &&  notify-send "Tablet set to notebook screen"
--- bind = $mainMod , F6, exec, otd loadsettings ~/.config/OpenTabletDriver/Presets/room_ultrawide_left_hypr.json &&  notify-send "Tablet set to left side of the ultrawide"
--- bind = $mainMod , F7, exec,otd loadsettings ~/.config/OpenTabletDriver/Presets/room_ultrawide_right_hypr.json &&  notify-send "Tablet set to right side of the ultrawide"
+require("keybinds.print_screen")
