@@ -37,11 +37,16 @@ notify() {
         "$message"
 }
 
+
 regular() {
     mkdir -p "$SCREENSHOT_DIR"
 
     if grimshot save area "$SCREENSHOT"; then
-        notify "Image saved in $SCREENSHOT"
+        if wl-copy --type image/png < "$SCREENSHOT"; then
+            notify "Screenshot saved and copied to clipboard."
+        else
+            notify "Screenshot saved, but clipboard copy failed."
+        fi
     else
         notify "Error: could not save screenshot."
         exit 1
